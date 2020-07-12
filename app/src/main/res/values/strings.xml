@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">QuizApplication</string>
+
+<!--    <array name="imageList">-->
+<!--        <item>@drawable/george_washington</item>-->
+<!--        <item>@drawable/john_adams</item>-->
+<!--        <item>@drawable/thomas_jefferson</item>-->
+<!--        <item>@drawable/james_madison</item>-->
+<!--        <item>@drawable/james_monroe</item>-->
+<!--        <item>@drawable/jqa</item>-->
+<!--        <item>@drawable/andrew_jackson</item>-->
+<!--        <item>@drawable/martin_van_buren</item>-->
+<!--        <item>@drawable/william_henry_harrison</item>-->
+<!--        <item>@drawable/john_tyler</item>-->
+<!--    </array>-->
 </resources>
