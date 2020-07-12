@@ -7,4 +7,6 @@ class Question {
     var answer3: String = ""
 
     var answer: Int = 0
+
+    var imageResource: Int = 0
 }

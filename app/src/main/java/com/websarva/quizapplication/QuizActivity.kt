@@ -7,12 +7,15 @@ import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
+import kotlin.concurrent.schedule
 import kotlin.math.log
 
 class QuizActivity : AppCompatActivity() {
 
     val questionList = mutableListOf<Question>()
     val imageViewList = mutableListOf<Int>()
+    var answer = 0
+    lateinit var timer: Timer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,19 +23,31 @@ class QuizActivity : AppCompatActivity() {
 
         //Questionクラスをインスタンス化
         val question1 = Question()
+        question1.answer = 2
+
         question1.answer1 = "ドナルド・トランプ"
         question1.answer2 = "ジョージ・ワシントン"
         question1.answer3 = "エイブラハム・リンカーン"
 
+        question1.imageResource = R.drawable.george_washington
+
         val question2 = Question()
-        question2.answer1 = "ジョン・F・ケネディ"
+        question2.answer = 1
+
+        question2.answer1 = "ジョン・アダムス"
         question2.answer2 = "ジョージ・W・ブッシュ"
         question2.answer3 = "バラク・オバマ"
 
+        question2.imageResource = R.drawable.john_adams
+
         val question3 = Question()
+        question3.answer = 3
+
         question3.answer1 = "ジェームズ・モンロー"
         question3.answer2 = "アンドリュー・ジャクソン"
         question3.answer3 = "トーマス・ジェファーソン"
+
+        question3.imageResource = R.drawable.thomas_jefferson
 
         questionList.add(question1)
         questionList.add(question2)
@@ -52,17 +67,9 @@ class QuizActivity : AppCompatActivity() {
 
 
             //選択肢が押されたら
-        buttonAnswer1.setOnClickListener {
-            xxx(1)
-        }
-
-        buttonAnswer2.setOnClickListener {
-            xxx(2)
-        }
-
-        buttonAnswer3.setOnClickListener {
-            xxx(3)
-        }
+        buttonAnswer1.setOnClickListener { answerCheck(1) }
+        buttonAnswer2.setOnClickListener { answerCheck(2) }
+        buttonAnswer3.setOnClickListener { answerCheck(3) }
 
         //「BACK」ボタンが押されたら
         buttonBack.setOnClickListener {
@@ -73,8 +80,15 @@ class QuizActivity : AppCompatActivity() {
         setQuestion()
     }
 
-    private fun xxx(yyy: Int) {
-        if (yyy == 2) {
+    override fun onResume() {
+        super.onResume()
+
+        //Timerクラスをインスタンス化
+        timer = Timer()
+    }
+
+    private fun answerCheck(imageView: Int) {
+        if (imageView == answer) {
             imageViewAnswer.setImageResource(R.drawable.pic_correct)
         } else {
             imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
@@ -98,12 +112,11 @@ class QuizActivity : AppCompatActivity() {
         buttonAnswer2.text = question.answer2
         buttonAnswer3.text = question.answer3
 
-        //画像の乱数を生成
-        val randomImage = Random()
-        val imageViewIndex = randomImage.nextInt(imageViewList.count())
-        Log.d("imageViewIndex", imageViewIndex.toString())
+        imageView.setImageResource(question.imageResource)
 
-        val ImageView = imageViewList[imageViewIndex]
-        imageView.setImageResource(ImageView)
+        answer = question.answer
+
+        //◯、×を非表示にする
+        imageViewAnswer.isEnabled = false
     }
 }
