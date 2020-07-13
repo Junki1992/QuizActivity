@@ -150,7 +150,10 @@ class QuizActivity : AppCompatActivity() {
             if (numberOfRemaining == 10) {
                 //終了のメッセージを表示
                 textViewMessage.text = "FINISH!!"
-                //NEXTボタンを無効にする
+                //TOPボタン以外を全て無効にする
+                buttonAnswer1.isEnabled = false
+                buttonAnswer2.isEnabled = false
+                buttonAnswer3.isEnabled = false
                 buttonNext.isEnabled = false
             } else {
                 //次の問題を出題
