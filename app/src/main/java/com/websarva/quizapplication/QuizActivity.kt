@@ -13,7 +13,7 @@ class QuizActivity : AppCompatActivity() {
     val imageViewList = mutableListOf<Int>()
     var answer = 0
 //    lateinit var timer: Timer
-    var numnerOfRemaining = 0
+    var numberOfRemaining = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +49,80 @@ class QuizActivity : AppCompatActivity() {
 
         question3.imageResource = R.drawable.thomas_jefferson
 
+        val question4 = Question()
+        question4.answer = 1
+
+        question4.answer1 = "ジェームス・マディソン"
+        question4.answer2 = "ビル・クリントン"
+        question4.answer3 = "ジョン・タイラー"
+
+        question4.imageResource = R.drawable.james_madison
+
+        val question5 = Question()
+        question5.answer = 3
+
+        question5.answer1 = "トーマス・ジェファーソン"
+        question5.answer2 = "アンドリュー・ジャクソン"
+        question5.answer3 = "ジェームズ・モンロー"
+
+        question5.imageResource = R.drawable.james_monroe
+
+        val question6 = Question()
+        question6.answer = 2
+
+        question6.answer1 = "ウィリアム・タフト"
+        question6.answer2 = "ジョン・クインシー・アダムス"
+        question6.answer3 = "ハリー・トルーマン"
+
+        question6.imageResource = R.drawable.jqa
+
+        val question7 = Question()
+        question7.answer = 3
+
+        question7.answer1 = "ジョージ・ワシントン"
+        question7.answer2 = "セオドア・ルーズベルト"
+        question7.answer3 = "アンドリュー・ジャクソン"
+
+        question7.imageResource = R.drawable.andrew_jackson
+
+        val question8 = Question()
+        question8.answer = 2
+
+        question8.answer1 = "ロナルド・レーガン"
+        question8.answer2 = "マーティン・ヴァン・ビューレン"
+        question8.answer3 = "ジェームズ・ポーク"
+
+        question8.imageResource = R.drawable.martin_van_buren
+
+        val question9 = Question()
+        question9.answer = 1
+
+        question9.answer1 = "ウィリアム・ハリソン"
+        question9.answer2 = "エイブラハム・リンカーン"
+        question9.answer3 = "ウィリアム・タフト"
+
+        question9.imageResource = R.drawable.william_henry_harrison
+
+        val question10 = Question()
+        question10.answer = 3
+
+        question10.answer1 = "ドナルド・トランプ"
+        question10.answer2 = "ビル・クリントン"
+        question10.answer3 = "ジョン・タイラー"
+
+        question10.imageResource = R.drawable.john_tyler
+
         questionList.add(question1)
         questionList.add(question2)
         questionList.add(question3)
+        questionList.add(question4)
+        questionList.add(question5)
+        questionList.add(question6)
+        questionList.add(question7)
+        questionList.add(question8)
+        questionList.add(question9)
+        questionList.add(question10)
+
 
         //imageViewListをセット
         imageViewList.add(R.drawable.george_washington)
@@ -74,8 +145,18 @@ class QuizActivity : AppCompatActivity() {
         buttonAnswer2.setOnClickListener { answerCheck(2) }
         buttonAnswer3.setOnClickListener { answerCheck(3) }
 
-        //「NEXT」ボタンが押されたら次の問題へ（setQuestionメソッドへ）
-        buttonNext.setOnClickListener { setQuestion() }
+        //「NEXT」ボタンが押された時の処理
+        buttonNext.setOnClickListener {
+            if (numberOfRemaining == 10) {
+                //終了のメッセージを表示
+                textViewMessage.text = "FINISH!!"
+                //NEXTボタンを無効にする
+                buttonNext.isEnabled = false
+            } else {
+                //次の問題を出題
+                setQuestion()
+            }
+        }
 
         //「TOP」ボタンが押されたらMainActivityへ
         buttonTop.setOnClickListener { finish() }
@@ -121,8 +202,8 @@ class QuizActivity : AppCompatActivity() {
         imageViewAnswer.visibility = View.INVISIBLE
 
         //問題数を表示
-        numnerOfRemaining ++
-        textViewNumberOfQuestion.text = numnerOfRemaining.toString()
+        numberOfRemaining ++
+        textViewNumberOfQuestion.text = numberOfRemaining.toString()
     }
 
     private fun answerCheck(imageView: Int) {
