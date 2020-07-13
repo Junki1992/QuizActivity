@@ -21,6 +21,9 @@ class QuizActivity : AppCompatActivity() {
 
         //画面が開いたら
 
+        //「NEXT」ボタンを無効化
+        buttonNext.isEnabled = false
+
         //Questionクラスをインスタンス化
         val question1 = Question()
         question1.answer = 2
@@ -181,6 +184,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun setQuestion() {
+
+        //「NEXT」ボタンを無効化
+        buttonNext.isEnabled = false
+
         //選択肢の乱数を生成
         val randomQuestion = Random()
         val questionIndex = randomQuestion.nextInt(questionList.count())
@@ -210,6 +217,9 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun answerCheck(imageView: Int) {
+        //「NEXT」ボタンを有効化
+        buttonNext.isEnabled = true
+
         //正解なら◯、不正解なら×を表示する
         imageViewAnswer.visibility = View.VISIBLE
         if (imageView == answer) {
