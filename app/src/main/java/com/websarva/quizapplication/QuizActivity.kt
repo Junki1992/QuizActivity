@@ -1,5 +1,9 @@
 package com.websarva.quizapplication
 
+import android.media.AudioAttributes
+import android.media.AudioManager
+import android.media.SoundPool
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,8 +16,15 @@ class QuizActivity : AppCompatActivity() {
     val questionList = mutableListOf<Question>()
     val imageViewList = mutableListOf<Int>()
     var answer = 0
-//    lateinit var timer: Timer
+    lateinit var soundPool: SoundPool
+    var soundId_Correct = 0
+    var soundId_Incorrect = 0
     var numberOfRemaining = 0
+
+    //play関数を拡張関数で宣言（play2）
+    fun SoundPool.play2(soundId: Int) {
+        this.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +33,7 @@ class QuizActivity : AppCompatActivity() {
         //画面が開いたら
 
         //「NEXT」ボタンを無効化
-        buttonNext.isEnabled = false
+         buttonNext.isEnabled = false
 
         //Questionクラスをインスタンス化
         val question1 = Question()
@@ -171,22 +182,38 @@ class QuizActivity : AppCompatActivity() {
     //onResumeメソッドをオーバーライド
     override fun onResume() {
         super.onResume()
+        //SoundPoolクラスをインスタンス化
+        soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            SoundPool.Builder().setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .build())
+                .setMaxStreams(1)
+                .build()
+        } else {
+            SoundPool (1, AudioManager.STREAM_MUSIC, 0)
+        }
 
-        //Timerクラスをインスタンス化
-//        timer = Timer()
+        //音声ファイルをメモリにロード
+        soundId_Correct = soundPool.load(this, R.raw.sound_correct, 1)
+        soundId_Incorrect = soundPool.load(this, R.raw.sound_incorrect, 1)
     }
 
     override fun onPause() {
         super.onPause()
-
-        //Timerクラスをキャンセル
-//        timer.cancel()
+        //使用済みの音声ファイルをメモリから後片付け
+        soundPool.release()
     }
 
     private fun setQuestion() {
 
         //「NEXT」ボタンを無効化
         buttonNext.isEnabled = false
+
+        //buttonAnswer1,2,3を有効化
+        buttonAnswer1.isEnabled = true
+        buttonAnswer2.isEnabled = true
+        buttonAnswer3.isEnabled = true
 
         //選択肢の乱数を生成
         val randomQuestion = Random()
@@ -220,12 +247,20 @@ class QuizActivity : AppCompatActivity() {
         //「NEXT」ボタンを有効化
         buttonNext.isEnabled = true
 
-        //正解なら◯、不正解なら×を表示する
+        //buttonAnswer1,2,3を有効化
+        buttonAnswer1.isEnabled = false
+        buttonAnswer2.isEnabled = false
+        buttonAnswer3.isEnabled = false
+
+        //正解なら◯、不正解なら×を表示し、音声ファイルを再生する
         imageViewAnswer.visibility = View.VISIBLE
+
         if (imageView == answer) {
             imageViewAnswer.setImageResource(R.drawable.pic_correct)
+            soundPool.play2(soundId_Correct)
         } else {
             imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
+            soundPool.play2(soundId_Incorrect)
         }
     }
 }
