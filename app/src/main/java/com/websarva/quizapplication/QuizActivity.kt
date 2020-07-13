@@ -1,25 +1,25 @@
 package com.websarva.quizapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
-import kotlin.concurrent.schedule
-import kotlin.math.log
 
 class QuizActivity : AppCompatActivity() {
 
     val questionList = mutableListOf<Question>()
     val imageViewList = mutableListOf<Int>()
     var answer = 0
-    lateinit var timer: Timer
+//    lateinit var timer: Timer
+    var numnerOfRemaining = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+
+        //画面が開いたら
 
         //Questionクラスをインスタンス化
         val question1 = Question()
@@ -65,36 +65,35 @@ class QuizActivity : AppCompatActivity() {
         imageViewList.add(R.drawable.william_henry_harrison)
         imageViewList.add(R.drawable.john_tyler)
 
+        //setQuestionメソッドの呼び出し
+        setQuestion()
 
-            //選択肢が押されたら
+
+            //選択肢が押されたら解答確認（answerCheckメソッド）
         buttonAnswer1.setOnClickListener { answerCheck(1) }
         buttonAnswer2.setOnClickListener { answerCheck(2) }
         buttonAnswer3.setOnClickListener { answerCheck(3) }
 
-        //「BACK」ボタンが押されたら
-        buttonBack.setOnClickListener {
-            finish()
-        }
+        //「NEXT」ボタンが押されたら次の問題へ（setQuestionメソッドへ）
+        buttonNext.setOnClickListener { setQuestion() }
 
-        //setQuestionメソッドの呼び出し
-        setQuestion()
+        //「TOP」ボタンが押されたらMainActivityへ
+        buttonTop.setOnClickListener { finish() }
     }
 
+    //onResumeメソッドをオーバーライド
     override fun onResume() {
         super.onResume()
 
         //Timerクラスをインスタンス化
-        timer = Timer()
+//        timer = Timer()
     }
 
-    private fun answerCheck(imageView: Int) {
-        if (imageView == answer) {
-            imageViewAnswer.setImageResource(R.drawable.pic_correct)
-        } else {
-            imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
-        }
+    override fun onPause() {
+        super.onPause()
 
-        setQuestion()
+        //Timerクラスをキャンセル
+//        timer.cancel()
     }
 
     private fun setQuestion() {
@@ -113,10 +112,26 @@ class QuizActivity : AppCompatActivity() {
         buttonAnswer3.text = question.answer3
 
         imageView.setImageResource(question.imageResource)
-
         answer = question.answer
 
-        //◯、×を非表示にする
-        imageViewAnswer.isEnabled = false
+        //1秒後に次の問題を出す（setQuestionメソッド）
+//        timer.schedule(1000, {runOnUiThread {setQuestion()}} )
+
+        //◯、×画像を見える様にする
+        imageViewAnswer.visibility = View.INVISIBLE
+
+        //問題数を表示
+        numnerOfRemaining ++
+        textViewNumberOfQuestion.text = numnerOfRemaining.toString()
+    }
+
+    private fun answerCheck(imageView: Int) {
+        //正解なら◯、不正解なら×を表示する
+        imageViewAnswer.visibility = View.VISIBLE
+        if (imageView == answer) {
+            imageViewAnswer.setImageResource(R.drawable.pic_correct)
+        } else {
+            imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
+        }
     }
 }
