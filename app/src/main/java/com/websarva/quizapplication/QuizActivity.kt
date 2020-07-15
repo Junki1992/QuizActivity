@@ -15,13 +15,15 @@ import java.util.*
 
 class QuizActivity : AppCompatActivity() {
 
+    var numberOfQuestion = 0
     val questionList = mutableListOf<Question>()
     val imageViewList = mutableListOf<Int>()
     var answer = 0
-    lateinit var soundPool: SoundPool
     var soundId_Correct = 0
     var soundId_Incorrect = 0
-    var numberOfRemaining = 0
+    var answeredQuestions = 0
+
+    lateinit var soundPool: SoundPool
     lateinit var vibrator: Vibrator
 
     //play関数を拡張関数で宣言（play2）
@@ -34,6 +36,9 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
 
         //画面が開いたら
+        //MainActivityから渡された問題数をゲット
+        val bundle = intent.extras
+        numberOfQuestion = bundle!!.getInt("numberOfQuestion")
 
         //「NEXT」ボタンを無効化
          buttonNext.isEnabled = false
@@ -167,7 +172,7 @@ class QuizActivity : AppCompatActivity() {
 
         //「NEXT」ボタンが押された時の処理
         buttonNext.setOnClickListener {
-            if (numberOfRemaining == 10) {
+            if (numberOfQuestion == answeredQuestions) {
                 //終了のメッセージを表示
                 textViewMessage.text = "FINISH!!"
                 //TOPボタン以外を全て無効にする
@@ -209,6 +214,9 @@ class QuizActivity : AppCompatActivity() {
         super.onPause()
         //使用済みの音声ファイルをメモリから後片付け
         soundPool.release()
+
+        //vibratorをオフ
+        vibrator.cancel()
     }
 
     private fun setQuestion() {
@@ -244,9 +252,9 @@ class QuizActivity : AppCompatActivity() {
         //◯、×画像を見える様にする
         imageViewAnswer.visibility = View.INVISIBLE
 
-        //問題数を表示
-        numberOfRemaining ++
-        textViewNumberOfQuestion.text = numberOfRemaining.toString()
+        //回答数を表示
+        answeredQuestions ++
+        textViewQuestionNumber.text = answeredQuestions.toString()
     }
 
     private fun answerCheck(imageView: Int) {

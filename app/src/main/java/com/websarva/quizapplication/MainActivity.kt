@@ -21,9 +21,14 @@ class MainActivity : AppCompatActivity() {
         //spinnerとAdapter（選択肢）を繋ぐ
         spinner.adapter = arrayAdapter
 
+        //「スタート」ボタンを押してQuizActivityへ（spinnerで選択した問題数を渡す）
         buttonStart.setOnClickListener {
-            //「スタート」ボタンを押してQuizAcitivtyへ
+
+            //選択した問題数をゲット
+            val numberOfQuestion: Int = spinner.selectedItem.toString().toInt()
+
             val intent = Intent(this@MainActivity, QuizActivity::class.java)
+            intent.putExtra("numberOfQuestion", numberOfQuestion)
             startActivity(intent)
         }
     }
