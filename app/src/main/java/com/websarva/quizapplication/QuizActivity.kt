@@ -1,10 +1,12 @@
 package com.websarva.quizapplication
 
+import android.content.Context
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
+import android.os.Vibrator
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,7 @@ class QuizActivity : AppCompatActivity() {
     var soundId_Correct = 0
     var soundId_Incorrect = 0
     var numberOfRemaining = 0
+    lateinit var vibrator: Vibrator
 
     //play関数を拡張関数で宣言（play2）
     fun SoundPool.play2(soundId: Int) {
@@ -34,6 +37,9 @@ class QuizActivity : AppCompatActivity() {
 
         //「NEXT」ボタンを無効化
          buttonNext.isEnabled = false
+
+        //vibratorのインスタンスを取得
+        vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         //Questionクラスをインスタンス化
         val question1 = Question()
@@ -261,6 +267,8 @@ class QuizActivity : AppCompatActivity() {
         } else {
             imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
             soundPool.play2(soundId_Incorrect)
+            //端末を振動させる
+            vibrator.vibrate(50L)
         }
     }
 }
