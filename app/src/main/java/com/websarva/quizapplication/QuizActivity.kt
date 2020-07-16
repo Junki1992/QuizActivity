@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
@@ -180,6 +181,7 @@ class QuizActivity : AppCompatActivity() {
                 buttonAnswer2.isEnabled = false
                 buttonAnswer3.isEnabled = false
                 buttonNext.isEnabled = false
+
             } else {
                 //次の問題を出題
                 setQuestion()
