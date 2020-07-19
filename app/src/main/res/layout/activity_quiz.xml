@@ -61,7 +61,7 @@
         android:id="@+id/buttonNext"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
+        android:layout_marginEnd="56dp"
         android:layout_marginBottom="16dp"
         android:text="NEXT"
         android:textStyle="bold"

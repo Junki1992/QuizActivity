@@ -1,6 +1,7 @@
 package com.websarva.quizapplication
 
 import android.content.Context
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.SoundPool
@@ -9,7 +10,6 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
@@ -42,7 +42,7 @@ class QuizActivity : AppCompatActivity() {
         numberOfQuestion = bundle!!.getInt("numberOfQuestion")
 
         //「NEXT」ボタンを無効化
-         buttonNext.isEnabled = false
+        buttonNext.isEnabled = false
 
         //vibratorのインスタンスを取得
         vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -166,7 +166,7 @@ class QuizActivity : AppCompatActivity() {
         setQuestion()
 
 
-            //選択肢が押されたら解答確認（answerCheckメソッド）
+        //選択肢が押されたら解答確認（answerCheckメソッド）
         buttonAnswer1.setOnClickListener { answerCheck(1) }
         buttonAnswer2.setOnClickListener { answerCheck(2) }
         buttonAnswer3.setOnClickListener { answerCheck(3) }
@@ -176,11 +176,17 @@ class QuizActivity : AppCompatActivity() {
             if (numberOfQuestion == answeredQuestions) {
                 //終了のメッセージを表示
                 textViewMessage.text = "FINISH!!"
-                //TOPボタン以外を全て無効にする
+                //選択肢を全て無効にする
                 buttonAnswer1.isEnabled = false
                 buttonAnswer2.isEnabled = false
                 buttonAnswer3.isEnabled = false
-                buttonNext.isEnabled = false
+
+                //buttonNext長押しでResultActivityへ
+                buttonNext.setOnLongClickListener {
+                    val intent = Intent(this@QuizActivity, ResultActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
 
             } else {
                 //次の問題を出題

@@ -13,10 +13,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //選択肢を入れるためのArrayAdapterをセット
-        val arrayAdapter = ArrayAdapter<Int>(this,android.R.layout.simple_spinner_item)
-        arrayAdapter.add(15)
-        arrayAdapter.add(25)
-        arrayAdapter.add(45)
+        val arrayAdapter = ArrayAdapter<Int>(this,android.R.layout.simple_spinner_item).apply {
+            add(1)  //テスト用
+            add(15)
+            add(25)
+            add(45)
+        }
 
         //spinnerとAdapter（選択肢）を繋ぐ
         spinner.adapter = arrayAdapter
