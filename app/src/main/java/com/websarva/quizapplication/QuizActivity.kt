@@ -41,6 +41,9 @@ class QuizActivity : AppCompatActivity() {
         val bundle = intent.extras
         numberOfQuestion = bundle!!.getInt("numberOfQuestion")
 
+        //出題数を表示
+        textViewQuestionNumber.text = numberOfQuestion.toString()
+
         //「NEXT」ボタンを無効化
         buttonNext.isEnabled = false
 
@@ -262,7 +265,7 @@ class QuizActivity : AppCompatActivity() {
 
         //回答数を表示
         answeredQuestions ++
-        textViewQuestionNumber.text = answeredQuestions.toString()
+        textViewAnsweredQuestion.text = answeredQuestions.toString()
     }
 
     private fun answerCheck(imageView: Int) {
