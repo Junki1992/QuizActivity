@@ -11,6 +11,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        //TRY AGAINボタンでMainActivityへ遷移
         buttonTryAgain.setOnClickListener {
             val intent = Intent(this@ResultActivity, MainActivity::class.java)
             startActivity(intent)
