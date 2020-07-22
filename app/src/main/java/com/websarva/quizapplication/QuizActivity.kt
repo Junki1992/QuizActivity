@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
@@ -197,8 +198,21 @@ class QuizActivity : AppCompatActivity() {
             }
         }
 
-        //「TOP」ボタンが押されたらMainActivityへ
-        buttonTop.setOnClickListener { finish() }
+        //「TOP」ボタンが押された際の処理
+        buttonTop.setOnClickListener {
+            //クイズがまだ途中の場合 → ダイアログを表示して確認
+            if (answeredQuestions < numberOfQuestion) {
+                val dialog = AlertDialog.Builder(this@QuizActivity).apply {
+                    setTitle("クイズの終了")
+                    setMessage("クイズを終了してタイトル画面に戻りますか？")
+                    setPositiveButton("はい") { dialog, which ->
+                        finish()
+                    }
+                    setNegativeButton("いいえ") { dialog, which ->  }
+                    show()
+                }
+            }
+        }
     }
 
     //onResumeメソッドをオーバーライド
