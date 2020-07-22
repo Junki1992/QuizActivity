@@ -24,6 +24,7 @@ class QuizActivity : AppCompatActivity() {
     var soundId_Correct = 0
     var soundId_Incorrect = 0
     var answeredQuestions = 0
+    lateinit var dialog: AlertDialog.Builder
 
     lateinit var soundPool: SoundPool
     lateinit var vibrator: Vibrator
@@ -202,7 +203,7 @@ class QuizActivity : AppCompatActivity() {
         buttonTop.setOnClickListener {
             //クイズがまだ途中の場合 → ダイアログを表示して確認
             if (answeredQuestions < numberOfQuestion) {
-                val dialog = AlertDialog.Builder(this@QuizActivity).apply {
+                dialog = AlertDialog.Builder(this@QuizActivity).apply {
                     setTitle("クイズの終了")
                     setMessage("クイズを終了してタイトル画面に戻りますか？")
                     setPositiveButton("はい") { dialog, which ->
