@@ -24,8 +24,9 @@ class QuizActivity : AppCompatActivity() {
     var soundId_Correct = 0
     var soundId_Incorrect = 0
     var answeredQuestions = 0
-    lateinit var dialog: AlertDialog.Builder
+    var intCorrect = 0
 
+    lateinit var dialog: AlertDialog.Builder
     lateinit var soundPool: SoundPool
     lateinit var vibrator: Vibrator
 
@@ -294,9 +295,11 @@ class QuizActivity : AppCompatActivity() {
 
         //正解なら◯、不正解なら×を表示し、音声ファイルを再生する
         imageViewAnswer.visibility = View.VISIBLE
-
         if (imageView == answer) {
             imageViewAnswer.setImageResource(R.drawable.pic_correct)
+            //正解なら正解数をカウント
+            intCorrect ++
+            textViewCorrect.text = intCorrect.toString()
             soundPool.play2(soundId_Correct)
         } else {
             imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
