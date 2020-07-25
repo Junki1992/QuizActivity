@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
 
+    //正解数をトップクラスで宣言（ResultActivityでも使用する為）
+    var intCorrect = 0
+
 class QuizActivity : AppCompatActivity() {
 
     var numberOfQuestion = 0
@@ -24,7 +27,6 @@ class QuizActivity : AppCompatActivity() {
     var soundId_Correct = 0
     var soundId_Incorrect = 0
     var answeredQuestions = 0
-    var intCorrect = 0
 
     lateinit var dialog: AlertDialog.Builder
     lateinit var soundPool: SoundPool
@@ -186,10 +188,11 @@ class QuizActivity : AppCompatActivity() {
                 buttonAnswer1.isEnabled = false
                 buttonAnswer2.isEnabled = false
                 buttonAnswer3.isEnabled = false
-
                 //buttonNext長押しでResultActivityへ
                 buttonNext.setOnLongClickListener {
                     val intent = Intent(this@QuizActivity, ResultActivity::class.java)
+                    intent.putExtra("numberOfQuestion", numberOfQuestion)
+                    intent.putExtra("intCorrect", intCorrect)
                     startActivity(intent)
                     true
                 }

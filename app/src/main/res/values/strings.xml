@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">QuizApplication</string>
-
     <!--    <array name="imageList">-->
     <!--        <item>@drawable/george_washington</item>-->
     <!--        <item>@drawable/john_adams</item>-->
