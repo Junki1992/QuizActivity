@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
 
         //選択肢を入れるためのArrayAdapterをセット
         val arrayAdapter = ArrayAdapter<Int>(this,android.R.layout.simple_spinner_item).apply {
-            add(1)  //テスト用
             add(15)
             add(25)
             add(45)
