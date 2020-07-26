@@ -42,6 +42,9 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
 
         //画面が開いたら
+        //正解数を0にする
+        intCorrect = 0
+
         //MainActivityから渡された問題数をゲット
         val bundle = intent.extras
         numberOfQuestion = bundle!!.getInt("numberOfQuestion")
@@ -108,7 +111,7 @@ class QuizActivity : AppCompatActivity() {
         question6.answer2 = "ジョン・クインシー・アダムス"
         question6.answer3 = "ハリー・トルーマン"
 
-        question6.imageResource = R.drawable.jqa
+        question6.imageResource = R.drawable.john_quincy_adams
 
         val question7 = Question()
         question7.answer = 3
@@ -164,7 +167,7 @@ class QuizActivity : AppCompatActivity() {
         imageViewList.add(R.drawable.thomas_jefferson)
         imageViewList.add(R.drawable.james_madison)
         imageViewList.add(R.drawable.james_monroe)
-        imageViewList.add(R.drawable.jqa)
+        imageViewList.add(R.drawable.john_quincy_adams)
         imageViewList.add(R.drawable.andrew_jackson)
         imageViewList.add(R.drawable.martin_van_buren)
         imageViewList.add(R.drawable.william_henry_harrison)
