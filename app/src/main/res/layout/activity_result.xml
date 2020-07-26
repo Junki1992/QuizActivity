@@ -10,7 +10,6 @@
         android:id="@+id/textViewResultMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:shadowColor="@color/resultMassage"
         android:textSize="46sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

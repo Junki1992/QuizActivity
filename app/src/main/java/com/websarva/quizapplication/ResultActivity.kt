@@ -1,6 +1,7 @@
 package com.websarva.quizapplication
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_result.*
@@ -23,6 +24,15 @@ class ResultActivity : AppCompatActivity() {
 
         //正解数を表示
         textViewCorrect.text = intCorrect.toString()
+
+        //結果を判定
+        if (intCorrect >= numberOfQuestion -5) {
+            textViewResultMessage.text = "CLEAR!!"
+            textViewResultMessage.setTextColor(Color.BLUE)
+        } else {
+            textViewResultMessage.text = "FAILURE..."
+            textViewResultMessage.setTextColor(Color.RED)
+        }
 
         //TRY AGAINボタンでMainActivityへ遷移
         buttonTryAgain.setOnClickListener {

@@ -237,7 +237,6 @@ class QuizActivity : AppCompatActivity() {
         } else {
             SoundPool (1, AudioManager.STREAM_MUSIC, 0)
         }
-
         //音声ファイルをメモリにロード
         soundId_Correct = soundPool.load(this, R.raw.sound_correct, 1)
         soundId_Incorrect = soundPool.load(this, R.raw.sound_incorrect, 1)
