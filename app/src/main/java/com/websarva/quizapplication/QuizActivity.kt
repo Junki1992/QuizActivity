@@ -199,7 +199,6 @@ class QuizActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-
             } else {
                 //次の問題を出題
                 setQuestion()
@@ -246,13 +245,11 @@ class QuizActivity : AppCompatActivity() {
         super.onPause()
         //使用済みの音声ファイルをメモリから後片付け
         soundPool.release()
-
         //vibratorをオフ
         vibrator.cancel()
     }
 
     private fun setQuestion() {
-
         //「NEXT」ボタンを無効化
         buttonNext.isEnabled = false
 
