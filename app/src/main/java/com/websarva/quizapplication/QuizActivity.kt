@@ -149,6 +149,52 @@ class QuizActivity : AppCompatActivity() {
 
         question10.imageResource = R.drawable.john_tyler
 
+        val question11 = Question()
+        question11.answer = 1
+
+        question11.answer1 = "ジェームズ・ポーク"
+        question11.answer2 = " チェスター・A・アーサー"
+        question11.answer3= "フランクリン・ルーズベルト"
+
+        question11.imageResource = R.drawable.james_polk
+
+        val question12 = Question()
+        question12.answer = 3
+
+        question12.answer1 = "ジョン・クインシー・アダムズ"
+        question12.answer2 = "ベンジャミン・ハリソン"
+        question12.answer3 = "ザカリー・テイラー"
+
+        question12.imageResource = R.drawable.zachary_taylor
+
+        val question13 = Question()
+        question13.answer = 1
+
+        question13.answer1 = "ミラード・フィルモア"
+        question13.answer2 = "ユリシーズ・グラント"
+        question13.answer3 = "フランクリン・ルーズベルト"
+
+        question13.imageResource = R.drawable.millard_fillmore
+
+        val question14 = Question()
+        question14.answer = 3
+
+        question14.answer1 = "ジェームズ・ポーク"
+        question14.answer2 = "ドナルド・トランプ"
+        question14.answer3 = "フランクリン・ピアース"
+
+        question14.imageResource = R.drawable.franklin_pierce
+
+        val question15 = Question()
+        question15.answer = 3
+
+        question15.answer1 = "ジョージ・ワシントン"
+        question15.answer2 = "ジェームズ・ブキャナン"
+        question15.answer3 = "ウィリアム・タフト"
+
+        question15.imageResource = R.drawable.james_buchanan
+
+
         questionList.add(question1)
         questionList.add(question2)
         questionList.add(question3)
@@ -159,7 +205,10 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question8)
         questionList.add(question9)
         questionList.add(question10)
-
+        questionList.add(question12)
+        questionList.add(question13)
+        questionList.add(question14)
+        questionList.add(question15)
 
         //imageViewListをセット
         imageViewList.add(R.drawable.george_washington)
@@ -172,6 +221,11 @@ class QuizActivity : AppCompatActivity() {
         imageViewList.add(R.drawable.martin_van_buren)
         imageViewList.add(R.drawable.william_henry_harrison)
         imageViewList.add(R.drawable.john_tyler)
+        imageViewList.add(R.drawable.james_polk)
+        imageViewList.add(R.drawable.zachary_taylor)
+        imageViewList.add(R.drawable.millard_fillmore)
+        imageViewList.add(R.drawable.franklin_pierce)
+        imageViewList.add(R.drawable.james_buchanan)
 
         //setQuestionメソッドの呼び出し
         setQuestion()
