@@ -58,140 +58,111 @@ class QuizActivity : AppCompatActivity() {
         //vibratorのインスタンスを取得
         vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
+        //出題パターンを定義
         //Questionクラスをインスタンス化
         val question1 = Question()
         question1.answer = 2
-
         question1.answer1 = "ドナルド・トランプ"
         question1.answer2 = "ジョージ・ワシントン"
         question1.answer3 = "エイブラハム・リンカーン"
-
         question1.imageResource = R.drawable.george_washington
 
         val question2 = Question()
         question2.answer = 1
-
         question2.answer1 = "ジョン・アダムス"
         question2.answer2 = "ジョージ・W・ブッシュ"
         question2.answer3 = "バラク・オバマ"
-
         question2.imageResource = R.drawable.john_adams
 
         val question3 = Question()
         question3.answer = 3
-
         question3.answer1 = "ジェームズ・モンロー"
         question3.answer2 = "アンドリュー・ジャクソン"
         question3.answer3 = "トーマス・ジェファーソン"
-
         question3.imageResource = R.drawable.thomas_jefferson
 
         val question4 = Question()
         question4.answer = 1
-
         question4.answer1 = "ジェームス・マディソン"
         question4.answer2 = "ビル・クリントン"
         question4.answer3 = "ジョン・タイラー"
-
         question4.imageResource = R.drawable.james_madison
 
         val question5 = Question()
         question5.answer = 3
-
         question5.answer1 = "トーマス・ジェファーソン"
         question5.answer2 = "アンドリュー・ジャクソン"
         question5.answer3 = "ジェームズ・モンロー"
-
         question5.imageResource = R.drawable.james_monroe
 
         val question6 = Question()
         question6.answer = 2
-
         question6.answer1 = "ウィリアム・タフト"
         question6.answer2 = "ジョン・クインシー・アダムス"
         question6.answer3 = "ハリー・トルーマン"
-
         question6.imageResource = R.drawable.john_quincy_adams
 
         val question7 = Question()
         question7.answer = 3
-
         question7.answer1 = "ジョージ・ワシントン"
         question7.answer2 = "セオドア・ルーズベルト"
         question7.answer3 = "アンドリュー・ジャクソン"
-
         question7.imageResource = R.drawable.andrew_jackson
 
         val question8 = Question()
         question8.answer = 2
-
         question8.answer1 = "ロナルド・レーガン"
         question8.answer2 = "マーティン・ヴァン・ビューレン"
         question8.answer3 = "ジェームズ・ポーク"
-
         question8.imageResource = R.drawable.martin_van_buren
 
         val question9 = Question()
         question9.answer = 1
-
         question9.answer1 = "ウィリアム・ハリソン"
         question9.answer2 = "エイブラハム・リンカーン"
         question9.answer3 = "ウィリアム・タフト"
-
         question9.imageResource = R.drawable.william_henry_harrison
 
         val question10 = Question()
         question10.answer = 3
-
         question10.answer1 = "ドナルド・トランプ"
         question10.answer2 = "ビル・クリントン"
         question10.answer3 = "ジョン・タイラー"
-
         question10.imageResource = R.drawable.john_tyler
 
         val question11 = Question()
         question11.answer = 1
-
         question11.answer1 = "ジェームズ・ポーク"
         question11.answer2 = " チェスター・A・アーサー"
         question11.answer3= "フランクリン・ルーズベルト"
-
         question11.imageResource = R.drawable.james_polk
 
         val question12 = Question()
         question12.answer = 3
-
         question12.answer1 = "ジョン・クインシー・アダムズ"
         question12.answer2 = "ベンジャミン・ハリソン"
         question12.answer3 = "ザカリー・テイラー"
-
         question12.imageResource = R.drawable.zachary_taylor
 
         val question13 = Question()
         question13.answer = 1
-
         question13.answer1 = "ミラード・フィルモア"
         question13.answer2 = "ユリシーズ・グラント"
         question13.answer3 = "フランクリン・ルーズベルト"
-
         question13.imageResource = R.drawable.millard_fillmore
 
         val question14 = Question()
         question14.answer = 3
-
         question14.answer1 = "ジェームズ・ポーク"
         question14.answer2 = "ドナルド・トランプ"
         question14.answer3 = "フランクリン・ピアース"
-
         question14.imageResource = R.drawable.franklin_pierce
 
         val question15 = Question()
-        question15.answer = 3
-
+        question15.answer = 2
         question15.answer1 = "ジョージ・ワシントン"
         question15.answer2 = "ジェームズ・ブキャナン"
         question15.answer3 = "ウィリアム・タフト"
-
         question15.imageResource = R.drawable.james_buchanan
 
 

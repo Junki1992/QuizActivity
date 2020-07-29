@@ -43,7 +43,6 @@ class ResultActivity : AppCompatActivity() {
             //onResultの呼び出し
             onResult()
         }
-
         //TRY AGAINボタンでMainActivityへ遷移
         buttonTryAgain.setOnClickListener {
             val intent = Intent(this@ResultActivity, MainActivity::class.java)
