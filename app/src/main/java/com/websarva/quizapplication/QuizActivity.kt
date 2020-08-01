@@ -22,7 +22,7 @@ class QuizActivity : AppCompatActivity() {
 
     var numberOfQuestion = 0
     val questionList = mutableListOf<Question>()
-    val imageViewList = mutableListOf<Int>()
+    //val imageViewList = mutableListOf<Int>()
     var answer = 0
     var soundId_Correct = 0
     var soundId_Incorrect = 0
@@ -182,21 +182,24 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question15)
 
         //imageViewListをセット
-        imageViewList.add(R.drawable.george_washington)
-        imageViewList.add(R.drawable.john_adams)
-        imageViewList.add(R.drawable.thomas_jefferson)
-        imageViewList.add(R.drawable.james_madison)
-        imageViewList.add(R.drawable.james_monroe)
-        imageViewList.add(R.drawable.john_quincy_adams)
-        imageViewList.add(R.drawable.andrew_jackson)
-        imageViewList.add(R.drawable.martin_van_buren)
-        imageViewList.add(R.drawable.william_henry_harrison)
-        imageViewList.add(R.drawable.john_tyler)
-        imageViewList.add(R.drawable.james_polk)
-        imageViewList.add(R.drawable.zachary_taylor)
-        imageViewList.add(R.drawable.millard_fillmore)
-        imageViewList.add(R.drawable.franklin_pierce)
-        imageViewList.add(R.drawable.james_buchanan)
+//        imageViewList.add(R.drawable.george_washington)
+//        imageViewList.add(R.drawable.john_adams)
+//        imageViewList.add(R.drawable.thomas_jefferson)
+//        imageViewList.add(R.drawable.james_madison)
+//        imageViewList.add(R.drawable.james_monroe)
+//        imageViewList.add(R.drawable.john_quincy_adams)
+//        imageViewList.add(R.drawable.andrew_jackson)
+//        imageViewList.add(R.drawable.martin_van_buren)
+//        imageViewList.add(R.drawable.william_henry_harrison)
+//        imageViewList.add(R.drawable.john_tyler)
+//        imageViewList.add(R.drawable.james_polk)
+//        imageViewList.add(R.drawable.zachary_taylor)
+//        imageViewList.add(R.drawable.millard_fillmore)
+//        imageViewList.add(R.drawable.franklin_pierce)
+//        imageViewList.add(R.drawable.james_buchanan)
+
+
+        Collections.shuffle(questionList)
 
         //setQuestionメソッドの呼び出し
         setQuestion()
@@ -284,13 +287,13 @@ class QuizActivity : AppCompatActivity() {
         buttonAnswer3.isEnabled = true
 
         //選択肢の乱数を生成
-        val randomQuestion = Random()
-        val questionIndex = randomQuestion.nextInt(questionList.count())
-        Log.d("questionIndex", questionIndex.toString())
+        // val randomQuestion = Random()
+        //val questionIndex = randomQuestion.nextInt(questionList.count())
+        // Log.d("questionIndex", questionIndex.toString())
 
         imageView.setImageResource(R.drawable.george_washington)
 
-        val question = questionList[questionIndex]
+        val question = questionList[answeredQuestions]
 
         //question1の選択肢
         buttonAnswer1.text = question.answer1
