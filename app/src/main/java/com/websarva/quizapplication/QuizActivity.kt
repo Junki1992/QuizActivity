@@ -40,11 +40,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
         //画面が開いたら
-        //正解数を0にする
-        intCorrect = 0
-
         //MainActivityから渡された問題数をゲット
         val bundle = intent.extras
         numberOfQuestion = bundle!!.getInt("numberOfQuestion")
@@ -159,13 +155,76 @@ class QuizActivity : AppCompatActivity() {
         question14.imageResource = R.drawable.franklin_pierce
 
         val question15 = Question()
-        question15.answer = 2
-        question15.answer1 = "ジョージ・ワシントン"
-        question15.answer2 = "ジェームズ・ブキャナン"
-        question15.answer3 = "ウィリアム・タフト"
+        question15.answer = 3
+        question15.answer1 = "ユリシーズ・グラント"
+        question15.answer2 = "ドナルド・トランプ"
+        question15.answer3 = "ジェームズ・ブキャナン"
         question15.imageResource = R.drawable.james_buchanan
 
+        val question16 = Question()
+        question16.answer = 2
+        question16.answer1 = "ドワイト・D・アイゼンハワー"
+        question16.answer2 = "エイブラハム・リンカーン"
+        question16.answer3 = "グロバー・クリーブランド"
+        question16.imageResource = R.drawable.abraham_lincoln
 
+        val question17 = Question()
+        question17.answer = 1
+        question17.answer1 = "アンドリュー・ジョンソン"
+        question17.answer2 = "セオドア・ルーズベルト"
+        question17.answer3 = "マーティン・ヴァン・ビューレン"
+        question17.imageResource = R.drawable.andrew_johnson
+
+        val question18 = Question()
+        question18.answer = 3
+        question18.answer1 = "ハリー・S・トルーマン"
+        question18.answer2 = "ジョージ・ワシントン"
+        question18.answer3 = "ユリシーズ・グラント"
+        question18.imageResource = R.drawable.ulysses_grant
+
+        val question19 = Question()
+        question19.answer = 2
+        question19.answer1 = "アンドリュー・ジョンソン"
+        question19.answer2 = "ラザフォード・ヘイズ"
+        question19.answer3 = "エイブラハム・リンカーン"
+        question19.imageResource = R.drawable.rutherford_hayes
+
+        val question20 = Question()
+        question20.answer = 2
+        question20.answer1 = "ザカリー・テイラー"
+        question20.answer2 = "ジェームズ・ガーフィールド"
+        question20.answer3 = "ジェームズ・ブキャナン"
+        question20.imageResource = R.drawable.james_garfield
+
+        val question21 = Question()
+        question21.answer = 1
+        question21.answer1 = "チェスター・A・アーサー"
+        question21.answer2 = "ハーバート・フーヴァー"
+        question21.answer3 = "リンドン・ジョンソン"
+        question21.imageResource = R.drawable.chester_a_arthur
+
+        val question22 = Question()
+        question22.answer = 1
+        question22.answer1 = "グロバー・クリーブランド"
+        question22.answer2 = "ベンジャミン・ハリソン"
+        question22.answer3 = "ロナルド・レーガン"
+        question22.imageResource = R.drawable.grover_cleveland
+
+        val question23 = Question()
+        question23.answer = 3
+        question23.answer1 = "カルビン・クーリッジ"
+        question23.answer2 = "リチャード・ニクソン"
+        question23.answer3 = "ベンジャミン・ハリソン"
+        question23.imageResource = R.drawable.benjamin_harrison
+
+        val question25 = Question()
+        question25.answer = 2
+        question25.answer1 = "ウッドロウ・ウィルソン"
+        question25.answer2 = "ウィリアム・マッキンリー"
+        question25.answer3 = "ウィリアム・タフト"
+        question25.imageResource = R.drawable.william_mckinley
+
+        //questionListに登録
         questionList.add(question1)
         questionList.add(question2)
         questionList.add(question3)
@@ -180,6 +239,15 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question13)
         questionList.add(question14)
         questionList.add(question15)
+        questionList.add(question16)
+        questionList.add(question17)
+        questionList.add(question18)
+        questionList.add(question19)
+        questionList.add(question20)
+        questionList.add(question21)
+        questionList.add(question22)
+        questionList.add(question23)
+        questionList.add(question25)
 
         //imageViewListをセット
 //        imageViewList.add(R.drawable.george_washington)
@@ -197,6 +265,15 @@ class QuizActivity : AppCompatActivity() {
 //        imageViewList.add(R.drawable.millard_fillmore)
 //        imageViewList.add(R.drawable.franklin_pierce)
 //        imageViewList.add(R.drawable.james_buchanan)
+//        imageViewList.add(R.drawable.abraham_lincoln)
+//        imageViewList.add(R.drawable.andrew_johnson)
+//        imageViewList.add(R.drawable.ulysses_grant)
+//        imageViewList.add(R.drawable.rutherford_hayes)
+//        imageViewList.add(R.drawable.james_garfield)
+//        imageViewList.add(R.drawable.chester_a_arthur)
+//        imageViewList.add(R.drawable.grover_cleveland)
+//        imageViewList.add(R.drawable.benjamin_harrison)
+//        imageViewList.add(R.drawable.william_mckinley)
 
 
         Collections.shuffle(questionList)
@@ -219,6 +296,8 @@ class QuizActivity : AppCompatActivity() {
                 buttonAnswer1.isEnabled = false
                 buttonAnswer2.isEnabled = false
                 buttonAnswer3.isEnabled = false
+                //テキストをNEXTからRESULTに変更
+                buttonNext.text = "RESULT"
                 //buttonNext長押しでResultActivityへ
                 buttonNext.setOnLongClickListener {
                     val intent = Intent(this@QuizActivity, ResultActivity::class.java)
@@ -253,6 +332,9 @@ class QuizActivity : AppCompatActivity() {
     //onResumeメソッドをオーバーライド
     override fun onResume() {
         super.onResume()
+        //正解数を0にする
+        intCorrect = 0
+
         //SoundPoolクラスをインスタンス化
         soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             SoundPool.Builder().setAudioAttributes(
@@ -264,6 +346,7 @@ class QuizActivity : AppCompatActivity() {
         } else {
             SoundPool (1, AudioManager.STREAM_MUSIC, 0)
         }
+
         //音声ファイルをメモリにロード
         soundId_Correct = soundPool.load(this, R.raw.sound_correct, 1)
         soundId_Incorrect = soundPool.load(this, R.raw.sound_incorrect, 1)
