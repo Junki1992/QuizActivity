@@ -216,6 +216,8 @@ class QuizActivity : AppCompatActivity() {
                 buttonAnswer1.isEnabled = false
                 buttonAnswer2.isEnabled = false
                 buttonAnswer3.isEnabled = false
+                //テキストをNEXTからRESULTに変更
+                buttonNext.text = "RESULT"
                 //buttonNext長押しでResultActivityへ
                 buttonNext.setOnLongClickListener {
                     val intent = Intent(this@QuizActivity, ResultActivity::class.java)
