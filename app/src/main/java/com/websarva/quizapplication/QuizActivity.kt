@@ -2,6 +2,7 @@ package com.websarva.quizapplication
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.SoundPool
@@ -295,7 +296,9 @@ class QuizActivity : AppCompatActivity() {
                 buttonAnswer3.isEnabled = false
                 //テキストをNEXTからRESULTに変更
                 buttonNext.text = "RESULT"
-                //buttonNext長押しでResultActivityへ
+                //メッセージを表示
+                buttonAnswer3.text = "「RESULT」を長押し"
+                buttonAnswer3.setTextColor(Color.BLACK)
                 buttonNext.setOnLongClickListener {
                     val intent = Intent(this@QuizActivity, ResultActivity::class.java)
                     intent.putExtra("numberOfQuestion", numberOfQuestion)
