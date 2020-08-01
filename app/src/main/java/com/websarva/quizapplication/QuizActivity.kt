@@ -40,11 +40,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
         //画面が開いたら
-        //正解数を0にする
-        intCorrect = 0
-
         //MainActivityから渡された問題数をゲット
         val bundle = intent.extras
         numberOfQuestion = bundle!!.getInt("numberOfQuestion")
@@ -252,6 +248,9 @@ class QuizActivity : AppCompatActivity() {
     //onResumeメソッドをオーバーライド
     override fun onResume() {
         super.onResume()
+        //正解数を0にする
+        intCorrect = 0
+
         //SoundPoolクラスをインスタンス化
         soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             SoundPool.Builder().setAudioAttributes(
@@ -263,6 +262,7 @@ class QuizActivity : AppCompatActivity() {
         } else {
             SoundPool (1, AudioManager.STREAM_MUSIC, 0)
         }
+        
         //音声ファイルをメモリにロード
         soundId_Correct = soundPool.load(this, R.raw.sound_correct, 1)
         soundId_Incorrect = soundPool.load(this, R.raw.sound_incorrect, 1)
