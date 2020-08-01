@@ -250,7 +250,7 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question25)
 
         //問題をシャッフル
-        Collections.shuffle(questionList)
+        questionList.shuffle()
 
         //setQuestionメソッドの呼び出し
         setQuestion()
