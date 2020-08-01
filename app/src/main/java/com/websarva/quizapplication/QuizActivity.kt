@@ -9,14 +9,13 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.Vibrator
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 import java.util.*
 
-    //正解数をトップクラスで宣言（ResultActivityでも使用する為）
+//正解数をトップクラスで宣言（ResultActivityでも使用する為）
     var intCorrect = 0
 
 class QuizActivity : AppCompatActivity() {
@@ -250,33 +249,7 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question23)
         questionList.add(question25)
 
-        //imageViewListをセット
-//        imageViewList.add(R.drawable.george_washington)
-//        imageViewList.add(R.drawable.john_adams)
-//        imageViewList.add(R.drawable.thomas_jefferson)
-//        imageViewList.add(R.drawable.james_madison)
-//        imageViewList.add(R.drawable.james_monroe)
-//        imageViewList.add(R.drawable.john_quincy_adams)
-//        imageViewList.add(R.drawable.andrew_jackson)
-//        imageViewList.add(R.drawable.martin_van_buren)
-//        imageViewList.add(R.drawable.william_henry_harrison)
-//        imageViewList.add(R.drawable.john_tyler)
-//        imageViewList.add(R.drawable.james_polk)
-//        imageViewList.add(R.drawable.zachary_taylor)
-//        imageViewList.add(R.drawable.millard_fillmore)
-//        imageViewList.add(R.drawable.franklin_pierce)
-//        imageViewList.add(R.drawable.james_buchanan)
-//        imageViewList.add(R.drawable.abraham_lincoln)
-//        imageViewList.add(R.drawable.andrew_johnson)
-//        imageViewList.add(R.drawable.ulysses_grant)
-//        imageViewList.add(R.drawable.rutherford_hayes)
-//        imageViewList.add(R.drawable.james_garfield)
-//        imageViewList.add(R.drawable.chester_a_arthur)
-//        imageViewList.add(R.drawable.grover_cleveland)
-//        imageViewList.add(R.drawable.benjamin_harrison)
-//        imageViewList.add(R.drawable.william_mckinley)
-
-
+        //問題をシャッフル
         Collections.shuffle(questionList)
 
         //setQuestionメソッドの呼び出し
