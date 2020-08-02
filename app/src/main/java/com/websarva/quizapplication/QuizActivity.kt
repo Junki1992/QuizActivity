@@ -216,12 +216,26 @@ class QuizActivity : AppCompatActivity() {
         question23.answer3 = "ベンジャミン・ハリソン"
         question23.imageResource = R.drawable.benjamin_harrison
 
+        val question24 = Question()
+        question24.answer = 2
+        question24.answer1 = "ウッドロウ・ウィルソン"
+        question24.answer2 = "ウィリアム・マッキンリー"
+        question24.answer3 = "ウィリアム・タフト"
+        question24.imageResource = R.drawable.william_mckinley
+
         val question25 = Question()
-        question25.answer = 2
-        question25.answer1 = "ウッドロウ・ウィルソン"
-        question25.answer2 = "ウィリアム・マッキンリー"
-        question25.answer3 = "ウィリアム・タフト"
-        question25.imageResource = R.drawable.william_mckinley
+        question25.answer = 3
+        question25.answer1 = "フランクリン・ルーズベルト"
+        question25.answer2 = "ジミー・カーター"
+        question25.answer3 = "セオドア・ルーズベルト"
+        question25.imageResource = R.drawable.theodore_roosevelt
+
+        val question26 = Question()
+        question26.answer = 3
+        question26.answer1 = "ウィリアム・タフト"
+        question26.answer2 = "ウィリアム・マッキンリー"
+        question26.answer3 = "ウィリアム・ハリソン"
+        question26.imageResource = R.drawable.william_taft
 
         //questionListに登録
         questionList.add(question1)
@@ -246,7 +260,9 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question21)
         questionList.add(question22)
         questionList.add(question23)
+        questionList.add(question24)
         questionList.add(question25)
+        questionList.add(question26)
 
         //問題をシャッフル
         questionList.shuffle()
