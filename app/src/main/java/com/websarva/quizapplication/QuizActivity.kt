@@ -13,7 +13,6 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
-import java.util.*
 
 //正解数をトップクラスで宣言（ResultActivityでも使用する為）
     var intCorrect = 0
@@ -385,13 +384,13 @@ class QuizActivity : AppCompatActivity() {
         //正解なら◯、不正解なら×を表示し、音声ファイルを再生する
         imageViewAnswer.visibility = View.VISIBLE
         if (imageView == answer) {
-            imageViewAnswer.setImageResource(R.drawable.pic_correct)
+            imageViewAnswer.setImageResource(R.drawable.correct)
             //正解なら正解数をカウント
             intCorrect ++
             textViewCorrect.text = intCorrect.toString()
             soundPool.play2(soundId_Correct)
         } else {
-            imageViewAnswer.setImageResource(R.drawable.pic_incorrect)
+            imageViewAnswer.setImageResource(R.drawable.incorrect)
             soundPool.play2(soundId_Incorrect)
             //端末を振動させる
             vibrator.vibrate(50L)
