@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonTryAgain"
+        android:id="@+id/buttonTop"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
