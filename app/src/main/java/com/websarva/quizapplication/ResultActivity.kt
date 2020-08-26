@@ -74,11 +74,14 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun onResult() {
-        //結果を判定（合格なら青字で”CLEAR!!”、不合格なら赤字で”FAILURE...”を表示）
+        //結果を判定（合格なら青字で”CLEAR!!”、不合格なら赤字で”FAILURE...”、全問正解なら"PERFECT!!!"を表示）
         //判定結果に合わせて音声ファイルを再生
         if (intCorrect >= numberOfQuestion -5) {
             textViewResultMessage.text = "CLEAR!!"
             textViewResultMessage.setTextColor(Color.BLUE)
+            soundPool.play2(soundID1)
+        } else if(intCorrect == numberOfQuestion) {
+            textViewResultMessage.text = "PERFECT!!!"
             soundPool.play2(soundID1)
         } else {
             textViewResultMessage.text = "FAILURE..."
