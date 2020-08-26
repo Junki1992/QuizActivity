@@ -231,13 +231,147 @@ class QuizActivity : AppCompatActivity() {
         question25.imageResource = R.drawable.theodore_roosevelt
 
         val question26 = Question()
-        question26.answer = 3
+        question26.answer = 1
         question26.answer1 = "ウィリアム・タフト"
         question26.answer2 = "ウィリアム・マッキンリー"
         question26.answer3 = "ウィリアム・ハリソン"
         question26.imageResource = R.drawable.william_taft
 
-        //questionListに登録
+        val question27 = Question()
+        question27.answer = 2
+        question27.answer1 = "ユリシーズ・グラント"
+        question27.answer2 = "ウッドロウ・ウィルソン"
+        question27.answer3 = "ハーバート・フーバー"
+        question27.imageResource = R.drawable.woodrow_wilson
+
+        val question28 = Question()
+        question28.answer = 1
+        question28.answer1 = "ウォレン・ハーディング"
+        question28.answer2 = "ロナルド・レーガン"
+        question28.answer3 = "カルビン・クーリッジ"
+        question28.imageResource = R.drawable.warren_g_harding
+
+        val question29 = Question()
+        question29.answer = 1
+        question29.answer1 = "カルビン・クーリッジ"
+        question29.answer2 = "ハリー・S・トルーマン"
+        question29.answer3 = "セオドア・ルーズベルト"
+        question29.imageResource = R.drawable.calvin_coolidge
+
+        val question30 = Question()
+        question30.answer = 2
+        question30.answer1 = "ドワイト・D・アイゼンハワー"
+        question30.answer2 = "ハーバート・フーヴァー"
+        question30.answer3 = "ベンジャミン・ハリソン"
+        question30.imageResource = R.drawable.herbert_hoover
+
+        val question31 = Question()
+        question31.answer = 3
+        question31.answer1 = "リチャード・ニクソン"
+        question31.answer2 = "リンドン・ジョンソン"
+        question31.answer3 = "フランクリン・ルーズベルト"
+        question31.imageResource = R.drawable.franklin_delano_roosevelt
+
+        val question32 = Question()
+        question32.answer = 1
+        question32.answer1 = "ハリー・S・トルーマン"
+        question32.answer2 = "チェスター・A・アーサー"
+        question32.answer3 = "クロバー・クリーブランド"
+        question32.imageResource = R.drawable.hurry_truman
+
+        val question33 = Question()
+        question33.answer = 1
+        question33.answer1 = "ドワイト・D・アイゼンハワー"
+        question33.answer2 = "ジェラルド・R・フォード"
+        question33.answer3 = "ジミー・カーター"
+        question33.imageResource = R.drawable.dwight_d_eisenhower
+
+        val question34 = Question()
+        question34.answer = 1
+        question34.answer1 = "ジョン・F・ケネディ"
+        question34.answer2 = "カルビン・クーリッジ"
+        question34.answer3 = "ジェームズ・ブキャナン"
+        question34.imageResource = R.drawable.john_f_kennedy
+
+        val question35 = Question()
+        question35.answer = 2
+        question35.answer1 = "ウッドロウ・ウィルソン"
+        question35.answer2 = "リンドン・ジョンソン"
+        question35.answer3 = "ウォレン・ハーディング"
+        question35.imageResource = R.drawable.lyndon_johnson
+
+        val question36 = Question()
+        question36.answer = 3
+        question36.answer1 = "ロナルド・レーガン"
+        question36.answer2 = "ジミー・カーター"
+        question36.answer3 = "リチャード・ニクソン"
+        question36.imageResource = R.drawable.richard_nixon
+
+        val question37 = Question()
+        question37.answer = 2
+        question37.answer1 = "ハリー・S・トルーマン"
+        question37.answer2 = "ジェラルド・R・フォード"
+        question37.answer3 = "ジョン・F・ケネディ"
+        question37.imageResource = R.drawable.gerald_ford
+
+        val question38 = Question()
+        question38.answer = 3
+        question38.answer1 = "フランクリン・ルーズベルト"
+        question38.answer2 = "ウィリアム・マッキンリー"
+        question38.answer3 = "ジミー・カーター"
+        question38.imageResource = R.drawable.james_carter
+
+        val question39 = Question()
+        question39.answer = 1
+        question39.answer1 = "ロナルド・レーガン"
+        question39.answer2 = "ジェームズ・ポーク"
+        question39.answer3 = "ジョン・タイラー"
+        question39.imageResource = R.drawable.ronald_reagan
+
+        val question40 = Question()
+        question40.answer = 3
+        question40.answer1 = "ジョージ・W・ブッシュ"
+        question40.answer2 = "リンドン・ジョンソン"
+        question40.answer3 = "ジョージ・H・W・ブッシュ"
+        question40.imageResource = R.drawable.george_h_w_bush
+
+        val question41 = Question()
+        question41.answer = 1
+        question41.answer1 = "ビル・クリントン"
+        question41.answer2 = "ジェームズ・ガーフィールド"
+        question41.answer3 = "ウィリアム・タフト"
+        question41.imageResource = R.drawable.bill_clinton
+
+        val question42 = Question()
+        question42.answer = 2
+        question42.answer1 = "ジョージ・H・W・ブッシュ"
+        question42.answer2 = "ジョージ・W・ブッシュ"
+        question42.answer3 = "カルビン・クーリッジ"
+        question42.imageResource = R.drawable.george_w_bush
+
+        val question43 = Question()
+        question43.answer = 2
+        question43.answer1 = "ジェームズ・モンロー"
+        question43.answer2 = "バラク・オバマ"
+        question43.answer3 = "ベンジャミン・ハリソン"
+        question43.imageResource = R.drawable.barack_obama
+
+        val question44 = Question()
+        question44.answer = 1
+        question44.answer1 = "ドナルド・トランプ"
+        question44.answer2 = "ジョージ・ワシントン"
+        question44.answer3 = "ユリシーズ・グラント"
+        question44.imageResource = R.drawable.donald_trump
+
+        val question45 = Question()
+        question45.answer = 3
+        question45.answer1 = "ミラード・フィルモア"
+        question45.answer2 = "ラザフォード・ヘイズ"
+        question45.answer3 = "グロバー・クリーブランド"
+        question45.imageResource = R.drawable.grover_cleveland
+
+
+    //questionListに登録
         questionList.add(question1)
         questionList.add(question2)
         questionList.add(question3)
@@ -248,6 +382,7 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question8)
         questionList.add(question9)
         questionList.add(question10)
+        questionList.add(question11)
         questionList.add(question12)
         questionList.add(question13)
         questionList.add(question14)
@@ -263,6 +398,25 @@ class QuizActivity : AppCompatActivity() {
         questionList.add(question24)
         questionList.add(question25)
         questionList.add(question26)
+        questionList.add(question27)
+        questionList.add(question28)
+        questionList.add(question29)
+        questionList.add(question30)
+        questionList.add(question31)
+        questionList.add(question32)
+        questionList.add(question33)
+        questionList.add(question34)
+        questionList.add(question35)
+        questionList.add(question36)
+        questionList.add(question37)
+        questionList.add(question38)
+        questionList.add(question39)
+        questionList.add(question40)
+        questionList.add(question41)
+        questionList.add(question42)
+        questionList.add(question43)
+        questionList.add(question44)
+        questionList.add(question45)
 
         //問題をシャッフル
         questionList.shuffle()
