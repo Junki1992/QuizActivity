@@ -470,6 +470,17 @@ class QuizActivity : AppCompatActivity() {
                     setNegativeButton("いいえ") { dialog, which ->  }
                     show()
                 }
+              //全問終了の場合 → ダイアログで確認
+            } else if (answeredQuestions == numberOfQuestion) {
+                dialog = AlertDialog.Builder(this@QuizActivity).apply {
+                    setTitle("クイズの終了")
+                    setMessage("結果を確認せずにタイトル画面に戻りますか？")
+                    setPositiveButton("はい") { dialog, which ->
+                        finish()
+                    }
+                    setNegativeButton("いいえ") { dialog, which -> }
+                    show()
+                }
             }
         }
     }
